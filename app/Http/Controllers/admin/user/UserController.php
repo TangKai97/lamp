@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\User;
 use Hash;
+use DB;
 class UserController extends Controller
 {
     /**
@@ -15,10 +16,16 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+
         $aname = $request['input'];
 
         $data = User::where('aname','like',"%{$aname}%")->orderBy('id','asc')->paginate(2);
-        
+        //
+        if(isset($_GET['name'])){
+        $tang =   User::where('auth','like',"%{$_GET['name']}%")->paginate(5);
+        }else{
+                $tang = User::paginate(5);
+        }
 
         return view('admin.user.index',['data'=>$data]);
     }
@@ -69,7 +76,11 @@ class UserController extends Controller
             $data->aemail = $request->aemail;
             $data->save(); 
             if($data){
+
                     return redirect('/admin/user/create')->with('success', '添加成功');
+
+                    return redirect('/admin/user')->with('success', '添加成功');
+
                 }else{
                 return back()->with('error', '添加失败');
              }
@@ -141,4 +152,39 @@ class UserController extends Controller
                 return back()->with('error', '删除失败');
         }
     }
+
+     public function login()
+    {
+        return view('admin.user.login');
+    }
+
+    public function dologin(request $request)
+    {
+        // 获取表单数据
+        $aname = $request->aname;
+        $apwd = $request->apwd;
+
+        if((($aname && $apwd) == null)){
+            return back()->with('error', '删除失败');
+            exit;
+        }
+        
+        // 查询数据库数据
+        $user = DB::table('admin_user')
+                    ->where('aname', $aname)
+                    ->first();
+
+        $aname_sql = $user->aname;
+        $apwd_sql = $user->apwd;
+        
+        if((Hash::check($apwd,$apwd_sql)) && ($aname == $aname_sql)){
+            return redirect('/admin/user')->with('success', '登录成功');
+        }else{
+            return back()->with('error', '删除失败');
+        }
+        
+
+    }
+
+
 }

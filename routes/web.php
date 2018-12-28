@@ -15,12 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// 后台登录
+Route::get('admin/user/login','admin\user\UserController@login');
+Route::get('admin/user/dologin','admin\user\UserController@dologin');
 //后台用户管理
 Route::resource('/admin/user','admin\user\UserController');
 //后台分类管理
 Route::resource('/admin/cate','admin\cate\CateController');
 //后台商品管理
 Route::resource('/admin/goods','admin\goods\GoodsController');
+
 
 
 
@@ -55,4 +59,7 @@ Route::get('home/login/status/{id}/{token}','home\login\RegisterController@setst
 Route::post('home/login/insert','home\login\RegisterController@insert');
 Route::get('home/login/sendMobileCode','home\login\RegisterController@sendMobileCode');
 Route::get('home/login/yanzheng/{phone}','home\login\RegisterController@yanzheng');
+
+
+
 

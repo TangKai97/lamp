@@ -2,12 +2,14 @@
 @section('content')
 <div class="panel-body">
 	<span class="page-title" style="text-align: center;"><h1>用户列表</h1></span>
-	<form class="navbar-form navbar-left">
+	<form class="navbar-form navbar-left" action="/admin/user" method="get">
 	<div class="input-group">
-		<input type="text" value="" class="form-control" placeholder="请输入你想要查询的关键字.....">
-		<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+		<input type="text" value="" class="form-control" name="aname" placeholder="请输入你想要查询的关键字.....">
+		<span class="input-group-btn">
+			<button type="button" class="btn btn-primary">Go</button>
+		</span>
 	</div>
-</form>
+	</form>
 	<table class="table">
 		<thead>
 			<tr>
@@ -39,5 +41,6 @@
 			@endforeach
 		</tbody>
 	</table>
+	<div class="list-page" >{{$data->links()}}</div>
 </div>
 @endsection

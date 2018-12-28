@@ -14,9 +14,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
+        $aname = $request['input'];
+
+        $data = User::where('aname','like',"%{$aname}%")->orderBy('id','asc')->paginate(2);
         //
         if(isset($_GET['name'])){
         $tang =   User::where('auth','like',"%{$_GET['name']}%")->paginate(5);
@@ -24,7 +27,6 @@ class UserController extends Controller
                 $tang = User::paginate(5);
         }
 
-        $data = User::orderBy('id','asc')->get();
         return view('admin.user.index',['data'=>$data]);
     }
 
@@ -35,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        //加载视图
         return view('admin.user.create');
     }
 
@@ -47,7 +49,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+        //验证
         $this->validate($request,[
                 'aname'=>'required|regex:/^[a-zA-Z]{1}[\w]{5,15}$/',
                 'apwd'=>'required|regex:/^[\w]{6,15}$/',
@@ -73,7 +76,11 @@ class UserController extends Controller
             $data->aemail = $request->aemail;
             $data->save(); 
             if($data){
+
+                    return redirect('/admin/user/create')->with('success', '添加成功');
+
                     return redirect('/admin/user')->with('success', '添加成功');
+
                 }else{
                 return back()->with('error', '添加失败');
              }

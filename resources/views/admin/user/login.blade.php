@@ -35,7 +35,7 @@
 								<div class="logo text-center"><img src="/admin/assets/img/logo-dark.png" alt="Klorofil Logo"></div>
 								<p class="lead">后台登录</p>
 							</div>
-							<form class="form-auth-small" action="/admin/dologin" method="get">
+							<form class="form-auth-small" action="/admin/user/dologin" method="get">
 								{{ csrf_field() }}
 								<div class="form-group">
 									<input type="text" class="form-control" id="aname" name="aname" placeholder="用户名"><span></span>

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-	<title>请你先说你好</title>
+	<title>请先说你好</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -39,7 +39,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/admin/assets/img/user.png" class="img-circle" alt="Avatar"> <span>管理员</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="/admin/login"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
+								<li><a href="/admin/user/login"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
 							</ul>
 						</li>
 						<!-- <li>
@@ -64,6 +64,25 @@
 								</ul>
 							</div>
 						</li>
+						<li>
+							<a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>类别管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPage" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/cate" class="">类别列表</a></li>
+									<li><a href="/admin/cate/create" class="">类别添加</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#subPag" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>商品管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPag" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/goods" class="">商品列表</a></li>
+									<li><a href="/admin/goods/create" class="">商品添加</a></li>
+								</ul>
+							</div>
+						</li>
+
 					</ul>
 				</nav>
 			</div>

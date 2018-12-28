@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/admin/index','admin\user\UserController@index');
 
+// 后台登录
+Route::get('admin/user/login','admin\user\UserController@login');
+Route::get('admin/user/dologin','admin\user\UserController@dologin');
+// 后台
 Route::resource('admin/user','admin\user\UserController');
 
 
@@ -25,6 +28,3 @@ Route::resource('admin/user','admin\user\UserController');
 
 
 
-// 后台登录
-Route::get('admin/login','admin\user\UserController@login');
-Route::get('admin/dologin','admin\user\UserController@dologin');

@@ -13,16 +13,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        if(isset($_GET['name'])){
-        $tang =   User::where('auth','like',"%{$_GET['name']}%")->paginate(5);
-        }else{
-                $tang = User::paginate(5);
-        }
+        $aname = $request['input'];
 
-        $data = User::orderBy('id','asc')->get();
+        $data = User::where('aname','like',"%{$aname}%")->orderBy('id','asc')->paginate(2);
+        
+
         return view('admin.user.index',['data'=>$data]);
     }
 
@@ -33,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        //加载视图
         return view('admin.user.create');
     }
 
@@ -45,7 +42,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+        //验证
         $this->validate($request,[
                 'aname'=>'required|regex:/^[a-zA-Z]{1}[\w]{5,15}$/',
                 'apwd'=>'required|regex:/^[\w]{6,15}$/',
@@ -71,7 +69,7 @@ class UserController extends Controller
             $data->aemail = $request->aemail;
             $data->save(); 
             if($data){
-                    return redirect('/admin/create')->with('success', '添加成功');
+                    return redirect('/admin/user/create')->with('success', '添加成功');
                 }else{
                 return back()->with('error', '添加失败');
              }
@@ -120,7 +118,7 @@ class UserController extends Controller
         $edit->aemail = $data['aemail'];
         $edit->save();
         if($data){
-            return redirect('/admin')->with('success', '修改成功');
+            return redirect('/admin/user')->with('success', '修改成功');
         }else{
         return back()->with('error', '修改失败');
         }
@@ -138,7 +136,7 @@ class UserController extends Controller
             $data = User::find($id);
             $data->delete();
             if($data){
-                    return redirect('/admin')->with('success', '删除成功');
+                    return redirect('/admin/user')->with('success', '删除成功');
             }else{
                 return back()->with('error', '删除失败');
         }

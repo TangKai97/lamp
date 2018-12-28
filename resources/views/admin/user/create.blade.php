@@ -12,7 +12,7 @@
 @endif
 <div class="panel-body">
 	<span class="page-title" style="text-align: center;"><h1>用户添加</h1></span>
-	<form action="/admin" method="post">
+	<form action="/admin/user" method="post">
 	{{ csrf_field() }}
 	用户名:<input type="text" class="form-control" name="aname" value="{{ old('aname') }}">
 	<br>

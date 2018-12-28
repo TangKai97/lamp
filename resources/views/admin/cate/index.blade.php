@@ -14,33 +14,32 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>用户名</th>
-				<th>电话</th>
-				<th>邮箱</th>
-				<th>创建时间</th>
+				<th>分类名称</th>
+				<th>所属分类PID</th>
+				<th>所属路径</th>
 				<th>操作</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($data as $k=>$v)
 			<tr>
-				<td>{{ $v->id }}</td>
-				<td>{{ $v->aname }}</td>
-				<td>{{ $v->atel }}</td>
-				<td>{{ $v->aemail }}</td>
-				<td>{{ $v->created_at }}</td>
+				<td>{{ $v->cid }}</td>
+				<td>{{ $v->cname }}</td>
+				<td>{{ $v->pid }}</td>
+				<td>{{ $v->path }}</td>
 				<td>
-					<form action="/admin/user/{{ $v->id }}" method="post" style="display: inline-block;">
+					<form style="display: inline-block;" method="post" action="/admin/cate/{{ $v->cid }}">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
-						<input type="submit" class="btn btn-danger" name="" value="删除">
+						<input type="submit" value="删除"  class="btn btn-danger">
 					</form>
-					<a href="/admin/user/{{ $v->id }}/edit" class="btn btn-info">修改</a>
+					<a href="/admin/cate/{{ $v->cid }}/edit" class="btn btn-warning">修改</a>
+					<a href="/admin/cate/{{ $v->cid }}" class="btn btn-info">添加子分类</a>
 				</td>
 			</tr>
 			@endforeach
 		</tbody>
 	</table>
-	<div class="list-page" >{{$data->links()}}</div>
+	<div class="list-page" ></div>
 </div>
 @endsection

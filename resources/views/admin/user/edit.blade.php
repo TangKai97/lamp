@@ -3,7 +3,7 @@
 
 <div class="panel-body">
 	<span class="page-title" style="text-align: center;"><h1>用户修改</h1></span>
-		<form action="/admin/{{$data->id}}" method="post">
+		<form action="/admin/user/{{$data->id}}" method="post">
 			{{ csrf_field() }}
 			{{ method_field('PUT') }}
 			<input type="hidden" class="form-control" name="aname" value="{{ $data->id }}" >

@@ -28,12 +28,12 @@
 				<td>{{ $v->aemail }}</td>
 				<td>{{ $v->created_at }}</td>
 				<td>
-					<form action="/admin/{{ $v->id }}" method="post" style="display: inline-block;">
+					<form action="/admin/user/{{ $v->id }}" method="post" style="display: inline-block;">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
 						<input type="submit" class="btn btn-danger" name="" value="删除">
 					</form>
-					<a href="/admin/{{ $v->id }}/edit" class="btn btn-info">修改</a>
+					<a href="/admin/user/{{ $v->id }}/edit" class="btn btn-info">修改</a>
 				</td>
 			</tr>
 			@endforeach

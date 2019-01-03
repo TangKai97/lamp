@@ -64,6 +64,10 @@ Route::post('home/login/insert','home\login\RegisterController@insert');
 Route::get('home/login/sendMobileCode','home\login\RegisterController@sendMobileCode');
 Route::get('home/login/yanzheng/{phone}','home\login\RegisterController@yanzheng');
 
+//前台用户管理
+Route::resource('admin/huser','admin\user\HuserController');
 
+//后台轮播图
+Route::resource('admin/banner','admin\banner\BannerController');
 
 

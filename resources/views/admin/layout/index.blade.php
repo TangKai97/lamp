@@ -65,6 +65,14 @@
 							</div>
 						</li>
 						<li>
+							<a href="#subPabc" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>前台用户管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPabc" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/huser" class="">前台用户管理中心</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
 							<a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>类别管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPage" class="collapse ">
 								<ul class="nav">
@@ -82,7 +90,15 @@
 								</ul>
 							</div>
 						</li>
-
+                        <li>
+							<a href="#subPagm" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>轮播图管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPagm" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/banner" class="">轮播图列表</a></li>
+									<li><a href="/admin/banner/create" class="">轮播图添加</a></li>
+								</ul>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>

@@ -2,14 +2,13 @@
 @section('content')
 <div class="panel-body">
 	<span class="page-title" style="text-align: center;"><h1>用户列表</h1></span>
-	<form class="navbar-form navbar-left" action="/admin/user" method="get">
 	<div class="input-group">
-		<input type="text" value="" class="form-control" name="aname" placeholder="请输入你想要查询的关键字.....">
-		<span class="input-group-btn">
-			<button type="button" class="btn btn-primary">Go</button>
-		</span>
+		<form action="/admin/user" method="get" style="display: inline-block;">
+			发布人:
+			<input type="text" name="aname" value="">
+			<input type="submit" class="btn btn-primary" value="搜索">
+		</form>
 	</div>
-	</form>
 	<table class="table">
 		<thead>
 			<tr>

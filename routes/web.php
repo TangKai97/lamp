@@ -50,6 +50,10 @@ Route::resource('/admin/goods','admin\goods\GoodsController');
 
 
 
+
+
+
+
 //chen的提交
 //前台注册路由
 Route::resource('home/login/register','home\login\RegisterController');

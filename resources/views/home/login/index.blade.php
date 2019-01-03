@@ -218,10 +218,7 @@
                           $("#neirong2").show();
                           $("#neirong2").html('<font style="font-size:20px;color:red;margin-left:10px;">手机格式不正确</font>');
                         }
-                        // //发送ajax
-                        // $.get('/hone/login/yanzheng',{'phone',phone},function(msg){
-                        //      console.log(msg);
-                        // },'html');
+    
                       });
                       
                       //验证密码

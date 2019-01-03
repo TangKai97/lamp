@@ -46,10 +46,6 @@
 								<button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>
 
 								<div class="bottom">
-									<span>asdsa1</span>
-								</div>
-
-								<div class="bottom">
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">忘记密码?</a></span>
 								</div>
 							</form>
@@ -58,8 +54,8 @@
 					<div class="right">
 						<div class="overlay"></div>
 						<div class="content text">
-							<h1 class="heading">Free Bootstrap dashboard template</h1>
-							<p>by The Develovers</p>
+							<h1 class="heading">这是一段话</h1>
+							<p>这也是一段话</p>
 						</div>
 					</div>
 					<div class="clearfix"></div>

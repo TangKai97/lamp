@@ -37,7 +37,7 @@
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/admin/assets/img/user.png" class="img-circle" alt="Avatar"> <span>管理员</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="lnr lnr-user"> </i><span>管理员</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="/admin/user/login"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
 							</ul>
@@ -56,16 +56,16 @@
 				<nav>
 					<ul class="nav">
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>用户管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-user"></i> <span>管理员</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="/admin/user" class="">用户列表</a></li>
-									<li><a href="/admin/user/create" class="">用户添加</a></li>
+									<li><a href="/admin/user" class="">管理员列表</a></li>
+									<li><a href="/admin/user/create" class="">管理员添加</a></li>
 								</ul>
 							</div>
 						</li>
 						<li>
-							<a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>类别管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-sun"></i> <span>类别管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPage" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/cate" class="">类别列表</a></li>
@@ -74,7 +74,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#subPag" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>商品管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPag" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cart"></i> <span>商品管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPag" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/goods" class="">商品列表</a></li>

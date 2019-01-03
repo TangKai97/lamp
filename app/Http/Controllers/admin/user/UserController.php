@@ -16,15 +16,11 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-
-        $aname = $request['input'];
-
-        $data = User::where('aname','like',"%{$aname}%")->orderBy('id','asc')->paginate(2);
-        //
-        if(isset($_GET['name'])){
-        $tang =   User::where('auth','like',"%{$_GET['name']}%")->paginate(5);
+         //查找数据
+        if(isset($_GET['aname'])){
+            $data =   User::where('aname','like',"%{$_GET['aname']}%")->paginate(5);
         }else{
-                $tang = User::paginate(5);
+            $data = User::paginate(5);
         }
 
         return view('admin.user.index',['data'=>$data]);
@@ -165,7 +161,7 @@ class UserController extends Controller
         $apwd = $request->apwd;
 
         if((($aname && $apwd) == null)){
-            return back()->with('error', '删除失败');
+            return back()->with('error', '请输入密码');
             exit;
         }
         
@@ -180,7 +176,7 @@ class UserController extends Controller
         if((Hash::check($apwd,$apwd_sql)) && ($aname == $aname_sql)){
             return redirect('/admin/user')->with('success', '登录成功');
         }else{
-            return back()->with('error', '删除失败');
+            return back()->with('error', '登录失败');
         }
         
 

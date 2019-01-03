@@ -25,7 +25,7 @@ Route::get('admin/user/dologin','admin\user\UserController@dologin');
 Route::resource('/admin/user','admin\user\UserController');
 //后台分类管理
 Route::resource('/admin/cate','admin\cate\CateController');
-//后台商品管理
+//后台商品管理 
 Route::resource('/admin/goods','admin\goods\GoodsController');
 
 
@@ -44,7 +44,7 @@ Route::resource('/admin/goods','admin\goods\GoodsController');
 
 
 
-
+ 
 
 
 
@@ -67,4 +67,46 @@ Route::get('home/login/yanzheng/{phone}','home\login\RegisterController@yanzheng
 
 
 
->>>>>>> 201b3ce662c3b842533302c882f0717f74e0d72a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <--------------------------hukai-------------------------->
+// 前台页面
+Route::get('index','home\HomeController@index');
+Route::get('myself','home\HomeController@myself');
+Route::get('mybuy','home\HomeController@mybuy');
+Route::get('mylike','home\HomeController@mylike');
+Route::get('myaddr','home\HomeController@myaddr');
+Route::get('buycar','home\HomeController@buycar');
+Route::get('buycar_two','home\HomeController@buycar_two');
+Route::get('buycar_three','home\HomeController@buycar_three');
+
+
+
+

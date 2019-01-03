@@ -65,7 +65,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#subPabc" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>前台用户管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPabc" data-toggle="collapse" class="collapsed"><i class="lnr lnr-sun"></i> <span>前台用户管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPabc" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/huser" class="">前台用户管理中心</a></li>
@@ -73,7 +73,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>类别管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-bookmark"></i> <span>类别管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 
 							<div id="subPage" class="collapse ">
 								<ul class="nav">
@@ -92,7 +92,7 @@
 							</div>
 						</li>
                         <li>
-							<a href="#subPagm" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>轮播图管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPagm" data-toggle="collapse" class="collapsed"><i class="lnr lnr-heart"></i> <span>轮播图管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagm" class="collapse ">
 								<ul class="nav">
 									<li><a href="/admin/banner" class="">轮播图列表</a></li>

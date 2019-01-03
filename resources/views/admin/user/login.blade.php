@@ -29,7 +29,7 @@
 		<div class="vertical-align-wrap">
 			<div class="vertical-align-middle">
 				<div class="auth-box ">
-					<div class="left">
+					<div class="left" style="position:relative; left:0px;">
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center"><img src="/admin/assets/img/logo-dark.png" alt="Klorofil Logo"></div>
@@ -46,18 +46,30 @@
 								<button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>
 
 								<div class="bottom">
+<<<<<<< HEAD
+=======
+									
+								</div>
+
+								<div class="bottom">
+>>>>>>> origin/hukai
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">忘记密码?</a></span>
 								</div>
 							</form>
 						</div>
 					</div>
-					<div class="right">
+					
 						<div class="overlay"></div>
 						<div class="content text">
+<<<<<<< HEAD
 							<h1 class="heading">这是一段话</h1>
 							<p>这也是一段话</p>
+=======
+							
+							
+>>>>>>> origin/hukai
 						</div>
-					</div>
+					
 					<div class="clearfix"></div>
 				
 			</div>

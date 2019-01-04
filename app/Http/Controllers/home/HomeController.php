@@ -7,11 +7,7 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    // 前台页面
-    public function index()
-    {
-    	return view('home.index');
-    }
+
 
     // 用户个人信息
     public function myself()

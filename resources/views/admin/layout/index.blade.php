@@ -100,6 +100,15 @@
 								</ul>
 							</div>
 						</li>
+						<li>
+							<a href="#subPagmn" data-toggle="collapse" class="collapsed"><i class="lnr lnr-heart"></i> <span>订单管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPagmns" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/orders" class="">订单列表</a></li>
+									<li><a href="/admin/banner/create" class="">订单添加添加</a></li>
+								</ul>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>

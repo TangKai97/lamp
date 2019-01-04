@@ -29,6 +29,13 @@ Route::resource('/admin/cate','admin\cate\CateController');
 Route::resource('/admin/goods','admin\goods\GoodsController');
 
 
+//前台分类便利数据
+Route::resource('/home/index','home\cates\CateController');
+//前台登录
+Route::get('/home/login','home\login\LoginController@index');
+Route::post('/home/login/login','home\login\LoginController@login');
+
+
 
 
 
@@ -106,7 +113,6 @@ Route::resource('admin/banner','admin\banner\BannerController');
 
 // <--------------------------hukai-------------------------->
 // 前台页面
-Route::get('index','home\HomeController@index');
 Route::get('myself','home\HomeController@myself');
 Route::get('mybuy','home\HomeController@mybuy');
 Route::get('mylike','home\HomeController@mylike');

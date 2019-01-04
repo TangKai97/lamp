@@ -22,28 +22,9 @@
 <!--Begin Header Begin-->
 <div class="soubg">
     <div class="sou">
-        <span><a href="index" style="font-size:20px;color:#ff4e00">首页</a></span>
+        <span><a href="/home/index" style="font-size:20px;color:#ff4e00">首页</a></span>
         <span class="fr">
-            <span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="myself">个人中心</a>&nbsp;|&nbsp;<a href="mybuy">我的订单</a>&nbsp;|&nbsp;<a href="mylike">我的收藏</a>&nbsp;|</span>
-            <span class="ss">
-                
-                <div class="ss_list">
-                    
-                        
-                </div>
-                <div class="ss_list">
-                    <a href="#">网站导航</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">网站导航</a></li>
-                                <li><a href="#">网站导航</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-            </span>
+            <span class="fl">你好，请<a href="/home/login">登录</a>&nbsp; <a href="/home/login/register" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="myself">个人中心</a>&nbsp;|&nbsp;<a href="mybuy">我的订单</a>&nbsp;|&nbsp;<a href="mylike">我的收藏</a>&nbsp;</span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
             <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/home/images/s_tel.png" align="absmiddle" /></a></span>
@@ -220,32 +201,6 @@
     </div>
     <!--End Footer End -->    
 </div>
-    <script type="text/javascript">
-        jQuery(function(){
-            jQuery('div ul li a').click(function(){
-
-                // alert('dad');
-                // var n = jQuery(this).index();
-                // jQuery('div ul li a').remoteClass('now');
-                jQuery(this).addClass('now');
-            });
-        });
-    </script>  
-<!--     <script type="text/javascript">
-            $(function(){
-                $('li').mouseover(function(){
-                    $(this).css('background','orange');
-                    var n = $(this).index();//获取当前下标
-                    // 让div 都隐藏
-                    $('div').hide();
-                    // 让指定显示
-                    $('div:eq('+n+')').show();
-                }).mouseout(function(){
-                    $(this).css('background','');
-                });
-            });
-
-        </script>   --> 
 </body>
 
 

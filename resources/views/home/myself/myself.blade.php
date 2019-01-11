@@ -7,7 +7,7 @@
                   <tr valign="top">
                     <td width="115"><img src="/home/images/user.jpg" width="90" height="90" /></td>
                     <td>
-                    	<div class="m_user">{{$data->uname}}</div>
+                    	<div class="m_user">{{ $data->uname }}</div>
                     </td>
                   </tr>
                 </table>	

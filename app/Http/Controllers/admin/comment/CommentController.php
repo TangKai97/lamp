@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin\user;
+namespace App\Http\Controllers\admin\comment;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Comment;
+use App\Models\Admin\Goods;
 use App\Models\Home\User;
-class HuserController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +16,27 @@ class HuserController extends Controller
      */
     public function index(Request $request)
     {
-        $params = $request->all();
+        
         //读取数据
-        if(isset($_GET['name'])){
-           $data = User::where('uname','like',"%{$_GET['name']}%")->paginate(5);
-        }else{
-           $data = User::paginate(5);
-        }
+        // $params = $request->all();
+        // if(isset($_GET['name'])){
+        //    $data = User::where('uname','like',"%{$_GET['name']}%")->paginate(5);
+        // }else{
+        //    $data = Comment::paginate(2);
+        // }
+
+        // if (isset($_GET['good'])) {
+        //     $good = Goods::where('gname','like','%'.$_GET['good'].'%')->get();
+        //     echo '<pre>';
+        //     var_dump($good);exit;
+
+        //     $data = Comment::where('gname','like',"%".$good_name."%")->paginate(1);
+        // }else{
+        //      $data = Comment::paginate(1);
+        // }
+         $data = Comment::paginate(2);
         //加载视图
-        return view('admin.huser.index',['data'=>$data,'params'=>$params]);
+        return view('admin.comment.index',['data'=>$data]);
     }
 
     /**
@@ -65,10 +79,7 @@ class HuserController extends Controller
      */
     public function edit($id)
     {
-        // echo $id;exit;
-        $data = User::find($id);
-        //加载视图
-        return view('admin.huser.edit',['data'=>$data]);
+        //
     }
 
     /**
@@ -80,19 +91,7 @@ class HuserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //接受数据
-        $data = $request->except(['_token','_method']);
-        $edit = User::find($id);
-        $edit->uname = $data['uname'];
-        $edit->utel = $data['utel'];
-        $edit->email = $data['email'];
-        $edit->status = $data['status'];
-        $edit->save();
-        if($data){
-            return redirect('/admin/huser')->with('success', '修改成功');
-        }else{
-        return back()->with('error', '修改失败');
-        }
+        //
     }
 
     /**
@@ -103,11 +102,11 @@ class HuserController extends Controller
      */
     public function destroy($id)
     {
-        //删除数据
-        $data = User::find($id);
-        $data->delete();
-        if($data){
-            return redirect('/admin/huser')->with('success', '删除成功');
+        //删除
+        $data = Comment::find($id);
+        $res = $data->delete();
+        if ($res) {
+           return redirect('/admin/comment')->with('success', '删除成功');
         }else{
             return back()->with('error', '删除失败');
         }

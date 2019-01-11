@@ -100,6 +100,31 @@
 								</ul>
 							</div>
 						</li>
+						<li>
+							<a href="#subPagmn" data-toggle="collapse" class="collapsed"><i class="lnr lnr-rocket"></i> <span>广告管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPagmn" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/nfos" class="">广告列表</a></li>
+									<li><a href="/admin/nfos/create" class="">广告添加</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#subPagmnx" data-toggle="collapse" class="collapsed"><i class="lnr lnr-thumbs-up"></i> <span>评论管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPagmnx" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/comment" class="">评论列表</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#subPagmnxc" data-toggle="collapse" class="collapsed"><i class="lnr lnr-map"></i> <span>订单管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPagmnxc" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/orders" class="">订单列表</a></li>
+								</ul>
+							</div>
+						</li>
 					</ul>
 				</nav>
 			</div>

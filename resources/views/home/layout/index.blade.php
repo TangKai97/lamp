@@ -100,8 +100,8 @@
                 <ul>
                     <li><a href="/edit">修改资料</a></li>
                     <li><a href="#">修改密码</a></li>
-                    
-                    
+                    <li><a href="#">修改资料</a></li>
+                    <li><a href="/home/changepass">修改密码</a></li>
                 </ul>
             </div>
             

@@ -9,7 +9,7 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="/addr/create"><font color="#ff4e00">新增收货地址</font></a></div>
+              <a href="/home/addr/create"><font color="#ff4e00">新增收货地址</font></a></div>
             <table border="0" class="order_tab" style="width:930px; text-align:center; margin-bottom:30px;" cellspacing="0" cellpadding="0">
               <tr>                                                                                                                                                    
                 <td width="10%">收货人</td>
@@ -28,7 +28,7 @@
                   <td>{{ $v->addrinfo }}</td>
                   <td>
                     <a href="addr/{{ $v->id }}/edit">修改</a>&nbsp;|&nbsp;
-                    <a href="addrdel/{{ $v->id }}">删除</a>
+                    <a href="/home/addrdel/{{ $v->id }}">删除</a>
                   </td>
                   <td><a href="#"><font color="#ff4e00">设为默认</font></a></td>
                 </tr>

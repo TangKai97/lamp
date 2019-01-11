@@ -1,7 +1,7 @@
 @extends('home.layout.index')
 @section('content')
 		<div class="m_right">
-            <form action="/addr" method="post">
+            <form action="/home/addr" method="post">
               {{ csrf_field() }}
               <tr>
                 <div class="mem_tit"><font color="#ff4e00">新增收货地址</font></div><br>

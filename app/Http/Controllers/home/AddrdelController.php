@@ -14,7 +14,7 @@ class AddrdelController extends Controller
         $data = Addr::find($id);
         $data = $data->delete();
         if ($data) {
-            return redirect('addr')->with('success', '删除成功');
+            return redirect('/home/addr')->with('success', '删除成功');
         }else{
             return back()->with('error', '删除失败');
         }

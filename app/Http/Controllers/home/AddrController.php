@@ -47,7 +47,7 @@ class AddrController extends Controller
         $data->addrinfo = $request->addrinfo;
         $data->save();
         if ($data) {
-            return redirect('addr')->with('success', '添加成功');
+            return redirect('/home/addr')->with('success', '添加成功');
         }else{
             return back()->with('error', '添加失败');
         }
@@ -95,7 +95,7 @@ class AddrController extends Controller
         $data->addrinfo = $request->addrinfo;
         $data->save();
         if ($data) {
-            return redirect('addr')->with('success', '修改成功');
+            return redirect('/home/addr')->with('success', '修改成功');
         }else{
             return back()->with('error', '修改失败');
         }

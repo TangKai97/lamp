@@ -123,8 +123,16 @@
 								<ul class="nav">
 									<li><a href="/admin/orders" class="">订单列表</a></li>
 								</ul>
+						</li>
+						<li><a href="#Firend" data-toggle="collapse" class="collapsed"><i class="lnr lnr-magic-wand"></i> <span>友情链接管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="Firend" class="collapse ">
+								<ul class="nav">
+									<li><a href="/admin/friend" class="">友情链接列表</a></li>
+									<li><a href="/admin/friend/create" class="">友情链接添加</a></li>
+								</ul>
 							</div>
 						</li>
+						
 					</ul>
 				</nav>
 			</div>

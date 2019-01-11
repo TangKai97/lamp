@@ -36,12 +36,6 @@ class HomeController extends Controller
     	return view('home.myself.mybuy');
     }
 
-    // 收货地址
-    public function myaddr()
-    {
-    	return view('home.myself.myaddr');
-    }
-
     // 我的收藏
     public function mylike()
     {

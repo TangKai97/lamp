@@ -22,11 +22,11 @@ Route::get('admin/user/login','admin\user\UserController@login');
 Route::get('admin/user/dologin','admin\user\UserController@dologin');
 
 //后台用户管理
-Route::resource('/admin/user','admin\user\UserController');
+Route::resource('admin/user','admin\user\UserController');
 //后台分类管理
-Route::resource('/admin/cate','admin\cate\CateController');
+Route::resource('admin/cate','admin\cate\CateController');
 //后台商品管理 
-Route::resource('/admin/goods','admin\goods\GoodsController');
+Route::resource('admin/goods','admin\goods\GoodsController'); 
 
 
 //前台分类便利数据
@@ -125,11 +125,14 @@ Route::post('home/update/{id}','home\changepass\ChangepassController@update');
 
 // <--------------------------hukai-------------------------->
 // 前台页面
+
+Route::get('index','home\HomeController@index');
+// 个人中心
 Route::get('myself','home\HomeController@myself');
 Route::get('layout','home\HomeController@layout');
 Route::get('mybuy','home\HomeController@mybuy');
 Route::get('mylike','home\HomeController@mylike');
-Route::get('myaddr','home\HomeController@myaddr');
+// 购物车
 Route::get('buycar','home\HomeController@buycar');
 Route::get('buycar_two','home\HomeController@buycar_two');
 Route::get('buycar_three','home\HomeController@buycar_three');
@@ -144,6 +147,13 @@ Route::get('/home/delete/{id}','home\collection\CollController@delete');
 Route::get('/home/shopping/{id}','home\collection\CollController@shopping');
 //前台修改个人信息
 Route::get('/home/updated/{id}','home\HomeController@updated');
+
+// 友情链接
+Route::resource('admin/friend','admin\friend\FriendController');
+Route::get('addrdel/{id}','home\AddrdelController@delete');
+Route::resource('addr','home\AddrController');
+
+
 
 
 

@@ -84,7 +84,7 @@
                 <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
                     <li><a href="/mybuy" >我的订单</a></li> 
-                    <li><a href="/addr">收货地址</a></li>
+                    <li><a href="/home/addr">收货地址</a></li>
                 </ul>
             </div>
             <div class="left_m">

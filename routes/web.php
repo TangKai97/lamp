@@ -150,8 +150,8 @@ Route::get('/home/updated/{id}','home\HomeController@updated');
 
 // 友情链接
 Route::resource('admin/friend','admin\friend\FriendController');
-Route::get('addrdel/{id}','home\AddrdelController@delete');
-Route::resource('addr','home\AddrController');
+Route::get('home/addrdel/{id}','home\AddrdelController@delete');
+Route::resource('home/addr','home\AddrController');
 
 
 

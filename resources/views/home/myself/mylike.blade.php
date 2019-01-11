@@ -18,26 +18,5 @@
                 <td align="center">￥456.00</td>
                 <td align="center"><a href="#">关注</a>&nbsp; &nbsp; <a href="#" style="color:#ff4e00;">加入购物车</a>&nbsp; &nbsp; <a href="#">删除</a></td>
               </tr>
-              <tr>
-                <td style="font-family:'宋体';">
-                	<div class="sm_img"><img src="/home/images/simg.jpg" width="48" height="48" /></div>法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只
-                </td>
-                <td align="center">￥456.00</td>
-                <td align="center"><a href="#">关注</a>&nbsp; &nbsp; <a href="#" style="color:#ff4e00;">加入购物车</a>&nbsp; &nbsp; <a href="#">删除</a></td>
-              </tr>
-              <tr>
-                <td style="font-family:'宋体';">
-                	<div class="sm_img"><img src="/home/images/simg.jpg" width="48" height="48" /></div>法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只
-                </td>
-                <td align="center">￥456.00</td>
-                <td align="center"><a href="#">关注</a>&nbsp; &nbsp; <a href="#" style="color:#ff4e00;">加入购物车</a>&nbsp; &nbsp; <a href="#">删除</a></td>
-              </tr>
-              <tr>
-                <td style="font-family:'宋体';">
-                	<div class="sm_img"><img src="/home/images/simg.jpg" width="48" height="48" /></div>法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只
-                </td>
-                <td align="center">￥456.00</td>
-                <td align="center"><a href="#">关注</a>&nbsp; &nbsp; <a href="#" style="color:#ff4e00;">加入购物车</a>&nbsp; &nbsp; <a href="#">删除</a></td>
-              </tr>
             </table>
 @endsection

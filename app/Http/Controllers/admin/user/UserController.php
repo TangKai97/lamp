@@ -157,30 +157,59 @@ class UserController extends Controller
     public function dologin(request $request)
     {
         // 获取表单数据
-        $aname = $request->aname;
-        $apwd = $request->apwd;
 
-        if((($aname && $apwd) == null)){
-            return back()->with('error', '请输入密码');
-            exit;
-        }
-        
-        // 查询数据库数据
-        $user = DB::table('admin_user')
-                    ->where('aname', $aname)
-                    ->first();
+        $aname = $request->input('aname');
 
-        $aname_sql = $user->aname;
-        $apwd_sql = $user->apwd;
-        
-        if((Hash::check($apwd,$apwd_sql)) && ($aname == $aname_sql)){
-            return redirect('/admin/user')->with('success', '登录成功');
-        }else{
-            return back()->with('error', '登录失败');
+
+        $res = DB::table('admin_user')->where('aname',$aname)->first();
+
+
+        // dd($res->password);
+
+        if(!$res){
+            // echo 0;测试代码1
+            return back()->with('error','用户名错误');
         }
-        
+         
+        // 判断密码
+        $apwd = $request->input('apwd');
+        if(!Hash::check($apwd,$res->apwd)){
+            return back()->with('error','密码错误');
+        }
+
+        session(['aname'=>$res->aname]);
+        session(['id'=>$res->id]);
+        return redirect('/admin/user')->with('success', '登录成功');
 
     }
+    
+    //验证码
+    // public function captcha()
+    // {
+    //     $phrase = new PhraseBuilder;
+    //     // 设置验证码位数
+    //     $code = $phrase->build(4);
+    //     // 生成验证码图片的Builder对象，配置相应属性
+    //     $builder = new CaptchaBuilder($code, $phrase);
+    //     // 设置背景颜色
+    //     $builder->setBackgroundColor(123, 203, 230);
+    //     $builder->setMaxAngle(25);
+    //     $builder->setMaxBehindLines(0);
+    //     $builder->setMaxFrontLines(0);
+    //     // 可以设置图片宽高及字体
+    //     $builder->build($width = 100, $height = 36, $font = null);
+    //     // 获取验证码的内容
+    //     $phrase = $builder->getPhrase();
+    //     // 把内容存入session
+    //     // \Session::flash('code', $phrase);
+
+    //     session(['code'=>$phrase]);
+
+    //     // 生成图片
+    //     header("Cache-Control: no-cache, must-revalidate");
+    //     header("Content-Type:image/jpeg");
+    //     $builder->output();
+    // }
 
 
 }

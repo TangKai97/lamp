@@ -29,30 +29,29 @@
 		<div class="vertical-align-wrap">
 			<div class="vertical-align-middle">
 				<div class="auth-box ">
-					<div class="left" style="position:relative; left:0px;">
+					<div class="left" style="position:relative; left:380px;">
 						<div class="content">
-							<div class="header">
+							<div class="header" style="position:relative; top:-15px;">
 								<div class="logo text-center"><img src="/admin/assets/img/logo-dark.png" alt="Klorofil Logo"></div>
 								<p class="lead">后台登录</p>
 							</div>
 							<form class="form-auth-small" action="/admin/user/dologin" method="get">
 								{{ csrf_field() }}
-								<div class="form-group">
-									<input type="text" class="form-control" id="aname" name="aname" placeholder="用户名"><span></span>
+								<div class="form-group" style="position:relative; top:-30px;">
+									<input type="text" class="form-control" id="aname" name="aname" placeholder="用户名"><span>&nbsp;</span>
 								</div>
-								<div class="form-group">
-									<input type="password" class="form-control" id="apwd" name="apwd" placeholder="密码"><span></span>
+								<div class="form-group" style="position:relative; top:-30px;">
+									<input type="password" class="form-control" id="apwd" name="apwd" placeholder="密码"><span>&nbsp;</span>
 								</div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>
-
-								<div class="bottom">
-<<<<<<< HEAD
-=======
-									
+								<div class="form-group" style="position:relative; top:-30px;width:300px;height: 76px;">
+									<input type="password" class="form-control" name="code" placeholder="请输入验证码">
+									<img src="\admin\captcha" alt="" style='float:right;' onclick="this.src = this.src +='?1'"><span>&nbsp;</span>
 								</div>
 
-								<div class="bottom">
->>>>>>> origin/hukai
+								<div style="position:relative; top:-30px;">
+									<button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>	
+								</div>
+								<div class="bottom" style="position:relative; top:-20px;">
 									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">忘记密码?</a></span>
 								</div>
 							</form>
@@ -61,13 +60,6 @@
 					
 						<div class="overlay"></div>
 						<div class="content text">
-<<<<<<< HEAD
-							<h1 class="heading">这是一段话</h1>
-							<p>这也是一段话</p>
-=======
-							
-							
->>>>>>> origin/hukai
 						</div>
 					
 					<div class="clearfix"></div>

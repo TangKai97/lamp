@@ -99,15 +99,15 @@
             <div class="left_m">
                 <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
-                    <li><a href="mybuy" >我的订单</a></li>
-                    <li><a href="myaddr">收货地址</a></li>
+                    <li><a href="/mybuy" >我的订单</a></li> 
+                    <li><a href="/addr">收货地址</a></li>
                 </ul>
             </div>
             <div class="left_m">
                 <div class="left_m_t t_bg2">会员中心</div>
                 <ul>
-                    <li><a href="myself" >我的信息</a></li>
-                    <li><a href="mylike">我的收藏</a></li>
+                    <li><a href="/myself" >我的信息</a></li>
+                    <li><a href="/mylike">我的收藏</a></li>
                     <li><a href="#">我的评论</a></li>
                 </ul>
             </div>
@@ -220,32 +220,7 @@
     </div>
     <!--End Footer End -->    
 </div>
-    <script type="text/javascript">
-        jQuery(function(){
-            jQuery('div ul li a').click(function(){
-
-                // alert('dad');
-                // var n = jQuery(this).index();
-                // jQuery('div ul li a').remoteClass('now');
-                jQuery(this).addClass('now');
-            });
-        });
-    </script>  
-<!--     <script type="text/javascript">
-            $(function(){
-                $('li').mouseover(function(){
-                    $(this).css('background','orange');
-                    var n = $(this).index();//获取当前下标
-                    // 让div 都隐藏
-                    $('div').hide();
-                    // 让指定显示
-                    $('div:eq('+n+')').show();
-                }).mouseout(function(){
-                    $(this).css('background','');
-                });
-            });
-
-        </script>   --> 
+   
 </body>
 
 

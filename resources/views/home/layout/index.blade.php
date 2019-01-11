@@ -14,8 +14,10 @@
     <script type="text/javascript" src="/home/js/menu.js"></script>    
         
     <script type="text/javascript" src="/home/js/select.js"></script>
-        
-    
+    <link rel="stylesheet" type="text/css" href="/home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="/home/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/home/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="http://static.h-ui.net/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css" />
 <title>天狗网</title>
 </head>
 <body>
@@ -24,10 +26,11 @@
     <div class="sou">
         <span><a href="/home/index" style="font-size:20px;color:#ff4e00">首页</a></span>
         <span class="fr">
-            <span class="fl">你好，请<a href="/home/login">登录</a>&nbsp; <a href="/home/login/register" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="myself">个人中心</a>&nbsp;|&nbsp;<a href="mybuy">我的订单</a>&nbsp;|&nbsp;<a href="mylike">我的收藏</a>&nbsp;</span>
-            <span class="fl">|&nbsp;关注我们：</span>
+            <span class="fl">&nbsp;|&nbsp;<a href="myself">个人中心</a>&nbsp;|&nbsp;<a href="mybuy">我的订单</a>&nbsp;|&nbsp;<a href="mylike">我的收藏</a>&nbsp;</span>
+            <span ><a href="#" class="sh1">退出</a></span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
             <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/home/images/s_tel.png" align="absmiddle" /></a></span>
+
         </span>
     </div>
 </div>
@@ -95,7 +98,7 @@
             <div class="left_m">
                 <div class="left_m_t t_bg3">账户中心</div>
                 <ul>
-                    <li><a href="#">修改资料</a></li>
+                    <li><a href="/edit">修改资料</a></li>
                     <li><a href="#">修改密码</a></li>
                     
                     
@@ -106,6 +109,18 @@
         <div class="m_right">
             
             <!-- 右侧主体开始 -->
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>{{ session('success') }}</strong> 
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>{{ session('error') }}</strong> 
+                </div>
+            @endif
 @section('content')
             
            

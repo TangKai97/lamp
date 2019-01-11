@@ -114,13 +114,24 @@ Route::resource('admin/banner','admin\banner\BannerController');
 // <--------------------------hukai-------------------------->
 // 前台页面
 Route::get('myself','home\HomeController@myself');
+Route::get('layout','home\HomeController@layout');
 Route::get('mybuy','home\HomeController@mybuy');
 Route::get('mylike','home\HomeController@mylike');
 Route::get('myaddr','home\HomeController@myaddr');
 Route::get('buycar','home\HomeController@buycar');
 Route::get('buycar_two','home\HomeController@buycar_two');
 Route::get('buycar_three','home\HomeController@buycar_three');
-
+Route::get('/goods/{id}','home\HomeController@goods');
+//前台首页修改个人资料
+Route::get('/edit','home\HomeController@edit');
+//前台商品详情页
+Route::get('/goods_info/{id}','home\HomeController@goods_info');
+//前台收藏商品and购物车
+Route::get('/home/collection/{id}','home\collection\CollController@collection');
+Route::get('/home/delete/{id}','home\collection\CollController@delete');
+Route::get('/home/shopping/{id}','home\collection\CollController@shopping');
+//前台修改个人信息
+Route::get('/home/updated/{id}','home\HomeController@updated');
 
 
 

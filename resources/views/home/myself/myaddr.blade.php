@@ -61,24 +61,14 @@
                     </select>
                 	<select class="jj" name="province">
                       <option value="0" selected="selected">请选择...</option>
-                      <option value="1">四川</option>
-                      <option value="2">重庆</option>
-                      <option value="3">北京</option>
-                      <option value="4">云南</option>
+
                     </select>
                     <select class="jj" name="city">
                       <option value="0" selected="selected">请选择...</option>
-                      <option value="1">成都</option>
-                      <option value="2">宜宾</option>
-                      <option value="3">南充</option>
-                      <option value="4">绵阳</option>
+
                     </select>
                     <select class="jj" name="area">
                       <option value="0" selected="selected">请选择...</option>
-                      <option value="1">武侯区</option>
-                      <option value="2">成华区</option>
-                      <option value="3">锦江区</option>
-                      <option value="4">青羊区</option>
                     </select>
                     （必填）
                 </td>

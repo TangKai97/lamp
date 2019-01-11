@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Mail;
 use App\Models\Home\User;
 use Hash;
+use DB;
+use App\Models\home\Userinfo;
 class RegisterController extends Controller
 {
     /**
@@ -42,13 +44,18 @@ class RegisterController extends Controller
         //接受数据
         $data = $request->all();
         //dump($data);exit;
-        $users = new User;
-        $users->utel = $request->input('utel');
-        $users->uname = $request->input('utel');
-        $users->upwd = Hash::make($request->input('upwd'));
-        $res = $users->save();
+        $id = DB::table('home_user')->insertGetId(
+            [
+                'utel' => $request->input('utel'),
+                'uname' => $request->input('utel'),
+                'upwd' => Hash::make($request->input('upwd')),
+            ]
+        );
+        $data = new Userinfo;
+        $data->uid = $id;
+        $res = $data->save();
         if ($res) {
-            dd('注册成功');
+            return redirect('/home/login');
         }else{
             dd('注册失败');
         }
@@ -92,20 +99,26 @@ class RegisterController extends Controller
         $data = $request->all();
         
         //将信息压入数据库
-        $users = new User;
-        $users->email = $request->input('email');
-        $users->uname = $request->input('email');
-        $users->upwd = Hash::make($request->input('upwd'));
-        $users->token = str_random(60);//随机字符串
-        // dump(session('pass_code'));exit();
+         $id = DB::table('home_user')->insertGetId(
+            [
+                'email' => $request->input('email'),
+                'uname' => $request->input('email'),
+                'upwd' => Hash::make($request->input('upwd')),
+                'token' => str_random(60),//随机字符串
+            ]
+        );
+        $info = new Userinfo;
+        $info->uid = $id;
+        $res = $info->save();
+        $users = User::find($id);
         //添加成功  发送邮件
-        if($users->save()){
+        if($res){
             //发送邮件
                 Mail::send('home.email.index', ['token'=>$users->token,'id'=>$users->id,'title' => 'shop官方邮件','email'=>$data['email']], function ($m) use ($users) {
                  //发送者                                   标题
                  $res = $m->to($users->email)->subject('这是一个测试');
                  if ($res) {
-                    dump('注册成功');
+                    return redirect('/home/login');
                  }else{
                     dump('注册失败');
                  }

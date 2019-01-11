@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Models\Admin\Banner;
+use App\Models\Admin\Goods;
 class CateController extends Controller
 {
-     public static function getPidCates($pid = 0)
+    public static function getPidCates($pid = 0)
     {
         $data = DB::table('cates')->where('pid',$pid)->get();
 
@@ -17,7 +18,7 @@ class CateController extends Controller
             $temp = self::getPidCates($value->cid);
             $value->sub = $temp;
         }
-        return $data;
+        return $data; 
     }
     /**
      * Display a listing of the resource.
@@ -25,12 +26,20 @@ class CateController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+
         //调用该自己
         $data = self::getPidCates(0);
         //查找数据
         $banner = Banner::find(1);
-       return view('home.index',['data'=>$data,'banner'=>$banner]);
+        if(session('res')){
+            //获取当前登录用户
+             $login_users = session('res');
+        }else{
+            $login_users = null;
+        }
+               
+        return view('home.myself.index',['data'=>$data,'banner'=>$banner,'login_users'=>$login_users]);
     }
 
     /**
@@ -39,8 +48,8 @@ class CateController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+
     }
 
     /**

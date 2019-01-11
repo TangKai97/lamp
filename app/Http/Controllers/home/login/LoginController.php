@@ -24,14 +24,19 @@ class LoginController extends Controller
     	
     	// dump($data['uname']);exit;
     	$home_user = User::all()->where('uname',$uname)->first();
-    	$res = $home_user->uname;
-    	$res1 = $home_user->upwd;
 
-    	if(($res == $uname) && (Hash::check($upwd,$res1))) {
-    		session(['res'=>$res]);
-    		return redirect('/home/index');
-    	}else{
-    		return redirect('/home/login')->with('登录失败');
-    	}
+        if($home_user){
+            $res = $home_user->uname;
+            $res1 = $home_user->upwd;
+            if(($res == $uname) && (Hash::check($upwd,$res1))) {
+                session(['res'=>$home_user]);
+                return redirect('/home/index');
+            }else{
+                return redirect('/home/login')->with('登录失败');
+            }
+        }else{
+             return redirect('/home/login')->with('账号或者密码不正确');
+        }
+    	
     }
 }

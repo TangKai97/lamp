@@ -11,8 +11,8 @@ class Cate extends Model
     //指定主键
     protected $primaryKey = 'cid';
 
-    public function cates()
+    public function cate_goods()
     {
-    	return $this->hasOne('App\Models\Admin\Goods','cid');
+    	return $this->hasMany('App\Models\Admin\Goods','cid','cid');
     }
 }

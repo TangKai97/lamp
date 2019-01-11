@@ -75,11 +75,23 @@ Route::post('home/login/insert','home\login\RegisterController@insert');
 Route::get('home/login/sendMobileCode','home\login\RegisterController@sendMobileCode');
 Route::get('home/login/yanzheng/{phone}','home\login\RegisterController@yanzheng');
 
-//前台用户管理
+//后台管理前台用户
 Route::resource('admin/huser','admin\user\HuserController');
-
 //后台轮播图
 Route::resource('admin/banner','admin\banner\BannerController');
+//后台广告
+Route::resource('admin/nfos','admin\nfos\NfosController');
+//后台品论管理
+Route::resource('admin/comment','admin\comment\CommentController');
+//后台订单管理
+Route::resource('admin/orders','admin\orders\OrdersController');
+//后台发货
+Route::get('/admin/orders/fahuo/{id}','admin\orders\OrdersController@fahuo');
+//前台修改密码
+Route::get('home/changepass','home\changepass\ChangepassController@index');
+Route::get('home/change/yanzheng/{oldpass}','home\changepass\ChangepassController@yanzheng');
+Route::post('home/update/{id}','home\changepass\ChangepassController@update');
+
 
 
 

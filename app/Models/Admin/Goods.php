@@ -14,4 +14,5 @@ class Goods extends Model
     {
     	return $this->hasOne('App\Models\Admin\Goods_Info','gid');
     }
+
 }

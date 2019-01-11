@@ -200,7 +200,7 @@
                         var pag_phone = /^1{1}[3-9]{1}[\d]{9}$/;
                         if(pag_phone.test(phone))
                         {
-                            var url = '/home/login/yanzheng/' + phone;
+                           var url = '/home/login/yanzheng/' + phone;
                            $.get(url,{'phone':phone},function(data){
                               if(data.code == 'success'){
                                   isphone = true;
@@ -218,10 +218,7 @@
                           $("#neirong2").show();
                           $("#neirong2").html('<font style="font-size:20px;color:red;margin-left:10px;">手机格式不正确</font>');
                         }
-<<<<<<< HEAD
-    
-=======
->>>>>>> origin/chen
+
                       });
                       
                       //验证密码

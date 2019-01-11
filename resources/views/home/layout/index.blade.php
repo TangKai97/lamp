@@ -96,7 +96,7 @@
                 <div class="left_m_t t_bg3">账户中心</div>
                 <ul>
                     <li><a href="#">修改资料</a></li>
-                    <li><a href="#">修改密码</a></li>
+                    <li><a href="/home/changepass">修改密码</a></li>
                     
                     
                 </ul>

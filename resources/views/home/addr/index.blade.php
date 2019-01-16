@@ -30,8 +30,19 @@
                     <a href="addr/{{ $v->id }}/edit">修改</a>&nbsp;|&nbsp;
                     <a href="/home/addrdel/{{ $v->id }}">删除</a>
                   </td>
-                  <td><a href="#"><font color="#ff4e00">设为默认</font></a></td>
+                  <td>
+
+                    <!-- {{var_dump($v->default)}} -->
+                    @if($v->default=='是')
+                    <font color="#ff4e00">默认地址</font>
+                    @else
+                    <a href="/home/myself/addr/{{$v->id}}">设为默认</a>
+                    @endif
+
+                  </td>
                 </tr>
               @endforeach
             </table>
+
+
 @endsection

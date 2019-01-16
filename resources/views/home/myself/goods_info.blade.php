@@ -37,11 +37,15 @@
 <!--Begin Header Begin-->
 <div class="soubg">
     <div class="sou">
+        <span><a href="/home/index" style="font-size:20px;color:#ff4e00">首页</a></span>
         <span class="fr">
-            <span class="fl">你好，<a href="/home/login">请登录</a>&nbsp; <a href="/home/login/register" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="/myself">个人中心</a>&nbsp;|&nbsp;<a href="/mybuy">我的订单</a>&nbsp;|&nbsp;<a href="/mylike">我的收藏</a>&nbsp;</span>
-            <span class="fl">|&nbsp;关注我们：</span>
-            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/home/images/s_tel.png" align="absmiddle" /></a></span>
+            <span class="fl">
+                @if($login_users)
+                    您好！{{$login_users->uname}}
+                @else
+                    <a href="/home/login">请登录</a>&nbsp; <a href="/home/login/register" style="color:#ff4e00;">免费注册</a>
+                @endif&nbsp;|&nbsp;<a href="/myself">个人中心</a>&nbsp;|&nbsp;<a href="/mybuy">我的订单</a>&nbsp;</span>
+            <span ><a href="/home/loginout">退出</a></span>
         </span>
     </div>
 </div>
@@ -194,10 +198,10 @@
                     <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
                     <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />   
                 </div>
-                <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="/home/images/j_car.png" /></a></span>
+                <span class="fl"><a href="/home/buy/{{$data->gid}}"><img src="/home/images/j_car.png" /></a></span>
             </div>            
         </div>    
-    </div>
+    </div>      
 
     <div class="content mar_20">
         <div class="l_history">
@@ -412,23 +416,7 @@
             <div class="notice_t">
                 <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv_1('MyDiv1','fade1')"><img src="/home/images/close.gif" /></span>
             </div>
-            <div class="notice_c">
-                
-                <table border="0" align="center" style="margin-top:;" cellspacing="0" cellpadding="0">
-                  <tr valign="top">
-                    <td width="40"><img src="/home/images/suc.png" /></td>
-                    <td>
-                        <span style="color:#3e3e3e; font-size:18px; font-weight:bold;">宝贝已成功添加到购物车</span><br />
-                        购物车共有1种宝贝（3件） &nbsp; &nbsp; 合计：1120元
-                    </td>
-                  </tr>
-                  <tr height="50" valign="bottom">
-                    <td>&nbsp;</td>
-                    <td><a href="#" class="b_sure">去购物车结算</a><a href="#" class="b_buy">继续购物</a></td>
-                  </tr>
-                </table>
-                    
-            </div>
+            
         </div>
     </div>    
     <!--End 弹出层-加入购物车 End-->

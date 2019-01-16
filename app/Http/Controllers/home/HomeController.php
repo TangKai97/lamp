@@ -8,6 +8,10 @@ use App\Models\Admin\Cate;
 use App\Models\Admin\Goods;
 use DB;
 use App\Models\Home\Collection;
+use App\Models\Admin\Orders;
+use App\Models\Admin\Orders_info;
+use App\Models\Home\Addr;
+use App\Models\Admin\Friend;
 class HomeController extends Controller
 {
     public static function getPidCates($pid = 0)
@@ -27,45 +31,50 @@ class HomeController extends Controller
     {   
 
         $data = session('res');
-    	return view('home.myself.myself',['data'=>$data]);
+    	
+        if(!$data){
+            return redirect('/home/login')->with('您没登录,请登录!');
+        }else{
+            return view('home.myself.myself',['data'=>$data]);
+        }
     }
 
     // 我的订单
     public function mybuy()
     {
-    	return view('home.myself.mybuy');
+        $friend = Friend::get();
+        $user_id = session("res.id");
+        $orders = Orders::where('uid',$user_id)->get();
+        //dump($orders->oid);
+       // dd($orders_info);
+        $data = session('res');
+        if(!$data){
+            return redirect('/home/login')->with('您没登录,请登录!');
+        }else{
+            return view('home.myself.mybuy',['data'=>$data,'orders'=>$orders,'friend'=>$friend]);
+        }
+    }
+    // 订单详情 
+    public function orderinfo($id)
+    {   
+         $user_id = session("res.id");
+         $data = Addr::where('uid',$user_id)->where('default','是')->get();
+         foreach ($data as $key => $value) {
+             
+         }
+         $user_id = session("res.id");
+         $orders = Orders::where('uid',$user_id)->where('oid',$id)->get();
+         $data = session('res');
+         return view('home.myself.orderinfo',['data'=>$data,'orders'=>$orders,'value'=>$value]);
     }
 
-    // 我的收藏
-    public function mylike()
-    {
-        $data = Collection::all();
-        //加载视图
-    	return view('home.myself.mylike',['data'=>$data]);
-    }
-
-
-    // 购物车
-    public function buycar()
-    {
-    	return view('home.myself.buycar');
-    }
-
-    public function buycar_two()
-    {
-    	return view('home.myself.buycar_two');
-    }
-
-    public function buycar_three()
-    {
-    	return view('home.myself.buycar_three');
-    }
 
     public function goods(Request $request,$id)
     {   
+        $login_users = session('res');
         $each = self::getPidCates(0);
         $data = Goods::where('cid','=',$id)->get();
-        return view('home.myself.goods',['data'=>$data,'each'=>$each]);
+        return view('home.myself.goods',['data'=>$data,'each'=>$each,'login_users'=>$login_users]);
     }
 
     public function edit()
@@ -96,8 +105,28 @@ class HomeController extends Controller
 
     public function goods_info($id = 0)
     {  
+        $login_users = session('res');
         $data = Goods::find($id);
         $each = self::getPidCates(0);
-        return view('home.myself.goods_info',['each'=>$each,'data'=>$data]);
+        return view('home.myself.goods_info',['each'=>$each,'data'=>$data,'login_users'=>$login_users]);
     }
+
+    public function loginout()
+    {
+        session(['res'=>null]);
+        return redirect('/home/index');
+    }
+
+    public function quren($id)
+    {
+        $data = Orders::find($id);
+        $data->status = 3;
+        $res = $data->save();
+        if($res){
+            return redirect('/mybuy')->with('success','确认收货成功');
+        }else{
+            return view('/mybuy')->with('error','确认收货失败');
+        }
+    }
+
 }

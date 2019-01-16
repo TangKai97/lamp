@@ -26,11 +26,10 @@
     <div class="sou">
         <span><a href="/home/index" style="font-size:20px;color:#ff4e00">首页</a></span>
         <span class="fr">
-            <span class="fl">&nbsp;|&nbsp;<a href="myself">个人中心</a>&nbsp;|&nbsp;<a href="mybuy">我的订单</a>&nbsp;|&nbsp;<a href="mylike">我的收藏</a>&nbsp;</span>
-            <span ><a href="#" class="sh1">退出</a></span>
+            <span class="fl">&nbsp;|&nbsp;<a href="/myself">个人中心</a>&nbsp;|&nbsp;<a href="/mybuy">我的订单</a>&nbsp;</span>
+            <span ><a href="/home/loginout">退出</a></span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
             <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/home/images/s_tel.png" align="absmiddle" /></a></span>
-
         </span>
     </div>
 </div>
@@ -43,7 +42,7 @@
                 <input type="submit" value="搜索" class="m_btn" />
             </form>                      
         </div>
-        <div class="i_car"><a href="buycar">
+        <div class="i_car"><a href="/buycar">
             <div class="car_t">购物车 [ <span>3</span> ]</div></a>
             <div class="car_bg">
                 <!--Begin 购物车未登录 Begin-->
@@ -91,8 +90,6 @@
                 <div class="left_m_t t_bg2">会员中心</div>
                 <ul>
                     <li><a href="/myself" >我的信息</a></li>
-                    <li><a href="/mylike">我的收藏</a></li>
-                    <li><a href="#">我的评论</a></li>
                 </ul>
             </div>
             <div class="left_m">
@@ -162,37 +159,23 @@
     </div>
     <div class="b_nav">
         <dl>                                                                                            
-            <dt><a href="#">新手上路</a></dt>
-            <dd><a href="#">售后流程</a></dd>
-            <dd><a href="#">购物流程</a></dd>
-            <dd><a href="#">订购方式</a></dd>
-            <dd><a href="#">隐私声明</a></dd>
-            <dd><a href="#">推荐分享说明</a></dd>
+            <dt><a href="#">友情链接</a></dt>
         </dl>
-        <dl>
-            <dt><a href="#">配送与支付</a></dt>
+        <dl> 
+            <dd></dd>
+            <dd></dd>
             <dd><a href="#">货到付款区域</a></dd>
             <dd><a href="#">配送支付查询</a></dd>
             <dd><a href="#">支付方式说明</a></dd>
         </dl>
-        <dl>
-            <dt><a href="#">会员中心</a></dt>
-            <dd><a href="#">资金管理</a></dd>
-            <dd><a href="#">我的收藏</a></dd>
-            <dd><a href="#">我的订单</a></dd>
+        <dl> 
+            <dd></dd>
+            <dd></dd>
+            <dd><a href="#">货到付款区域</a></dd>
+            <dd><a href="#">配送支付查询</a></dd>
+            <dd><a href="#">支付方式说明</a></dd>
         </dl>
-        <dl>
-            <dt><a href="#">服务保证</a></dt>
-            <dd><a href="#">退换货原则</a></dd>
-            <dd><a href="#">售后服务保证</a></dd>
-            <dd><a href="#">产品质量保证</a></dd>
-        </dl>
-        <dl>
-            <dt><a href="#">联系我们</a></dt>
-            <dd><a href="#">网站故障报告</a></dd>
-            <dd><a href="#">购物咨询</a></dd>
-            <dd><a href="#">投诉与建议</a></dd>
-        </dl>
+
         <div class="b_tel_bg">
             <a href="#" class="b_sh1">新浪微博</a>            
             <a href="#" class="b_sh2">腾讯微博</a>

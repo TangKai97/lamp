@@ -5,6 +5,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Home\Addr;
+use App\Models\Admin\Friend;
 
 class AddrController extends Controller
 {
@@ -15,9 +16,15 @@ class AddrController extends Controller
      */
     public function index()
     {
+        $friend = Friend::get();
+        foreach ($friend as $key => $value) {
+            # code...
+        }
         // 收货地址
-        $data = Addr::all();
-        return view('home.addr.index',['data'=>$data]);
+        $user_id = session("res.id");
+        $data = Addr::where('uid',$user_id)->get();
+     
+        return view('home.addr.index',['data'=>$data,'value'=>$value]);
     }
 
     /**
@@ -39,11 +46,15 @@ class AddrController extends Controller
      */
     public function store(Request $request)
     {
+
+        $user_id = session("res.id");
+        $addrs = $request->province.$request->country.$request->town;
         // 添加收货地址
         $data = new Addr;
+        $data->uid = $user_id;
         $data->aname = $request->aname;
         $data->atel = $request->atel;
-        $data->addr = $request->addr;
+        $data->addr = $addrs;
         $data->addrinfo = $request->addrinfo;
         $data->save();
         if ($data) {
@@ -89,9 +100,10 @@ class AddrController extends Controller
     {
         // 修改收货地址
         $data = Addr::find($id);
+        $addrs = $request->province.$request->country.$request->town;
         $data->aname = $request->aname;
         $data->atel = $request->atel;
-        $data->addr = $request->addr;
+        $data->addr = $addrs;
         $data->addrinfo = $request->addrinfo;
         $data->save();
         if ($data) {

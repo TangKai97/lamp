@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\User;
 use Hash;
 use DB;
+use Gregwar\Captcha\CaptchaBuilder;
+use Gregwar\Captcha\PhraseBuilder;
+
 class UserController extends Controller
 {
     /**
@@ -177,39 +180,45 @@ class UserController extends Controller
             return back()->with('error','密码错误');
         }
 
+        $code = $request->input('code');
+        if($code != session('code')){
+            return back()->with('error','验证码错误');
+        } 
+
         session(['aname'=>$res->aname]);
         session(['id'=>$res->id]);
         return redirect('/admin/user')->with('success', '登录成功');
 
     }
     
-    //验证码
-    // public function captcha()
-    // {
-    //     $phrase = new PhraseBuilder;
-    //     // 设置验证码位数
-    //     $code = $phrase->build(4);
-    //     // 生成验证码图片的Builder对象，配置相应属性
-    //     $builder = new CaptchaBuilder($code, $phrase);
-    //     // 设置背景颜色
-    //     $builder->setBackgroundColor(123, 203, 230);
-    //     $builder->setMaxAngle(25);
-    //     $builder->setMaxBehindLines(0);
-    //     $builder->setMaxFrontLines(0);
-    //     // 可以设置图片宽高及字体
-    //     $builder->build($width = 100, $height = 36, $font = null);
-    //     // 获取验证码的内容
-    //     $phrase = $builder->getPhrase();
-    //     // 把内容存入session
-    //     // \Session::flash('code', $phrase);
+    // 验证码
+    public function captcha()
+    {
 
-    //     session(['code'=>$phrase]);
+        $phrase = new PhraseBuilder;
+        // 设置验证码位数
+        $code = $phrase->build(4);
+        // 生成验证码图片的Builder对象，配置相应属性
+        $builder = new CaptchaBuilder($code, $phrase);
+        // 设置背景颜色
+        $builder->setBackgroundColor(123, 203, 230);
+        $builder->setMaxAngle(25);
+        $builder->setMaxBehindLines(0);
+        $builder->setMaxFrontLines(0);
+        // 可以设置图片宽高及字体
+        $builder->build($width = 140, $height = 40, $font = null);
+        // 获取验证码的内容
+        $phrase = $builder->getPhrase();
+        // 把内容存入session
+        // \Session::flash('code', $phrase);
 
-    //     // 生成图片
-    //     header("Cache-Control: no-cache, must-revalidate");
-    //     header("Content-Type:image/jpeg");
-    //     $builder->output();
-    // }
+        session(['code'=>$phrase]);
+
+        // 生成图片
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Content-Type:image/jpeg");
+        $builder->output();
+    }
 
 
 }

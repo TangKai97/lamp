@@ -43,8 +43,8 @@
                 @else
                     <a href="/home/login">请登录</a>&nbsp; <a href="/home/login/register" style="color:#ff4e00;">免费注册</a>
                 @endif
-                &nbsp;|&nbsp;<a href="/myself">个人中心</a>&nbsp;|&nbsp;<a href="/mybuy">我的订单</a>&nbsp;|&nbsp;<a href="/mylike">我的收藏</a>&nbsp;</span>
-            <span ><a href="#" class="sh1">退出</a></span>
+                &nbsp;|&nbsp;<a onclick="fun(this)">个人中心</a>&nbsp;|&nbsp;<a onclick="fun(this)">我的订单</a>&nbsp;</span>
+            <span ><a href="/home/loginout" class="sh1">退出</a></span>
     </div>
 </div>
 <div class="top">
@@ -56,7 +56,7 @@
         </form>
     </div>
     <div class="i_car">
-    	<div class="car_t"><a href="/buycar">购物车</a> [ <span>3</span> ]</div>
+    	<div class="car_t"><a  onclick="fun(this)" >购物车</a> [ <span>3</span> ]</div>
         <div class="car_bg">
        		<!--Begin 购物车未登录 Begin-->
         	<div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
@@ -639,3 +639,24 @@
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
 <![endif]-->
 </html>
+<script type="text/javascript">
+    function fun(that){
+
+        var name = $(that).text();
+
+        var user = "{{session('res')}}";
+        if(user){
+                if(name == '个人中心'){
+                    location.href = '/myself';
+                }else if(name == '我的订单'){
+                    location.href = '/mybuy';
+                }else if(name == '购物车'){
+                    location.href = '/buycar';
+                }
+        }else{
+                if ( confirm('您未登录,请登录!')){
+                    location.href = '/home/login';
+                }
+        }
+    };
+</script>

@@ -31,7 +31,7 @@
 				<div class="auth-box ">
 					<div class="left" style="position:relative; left:380px;">
 						<div class="content">
-							<div class="header" style="position:relative; top:-15px;">
+							<div class="header" style="position:relative; top:-5px;">
 								<div class="logo text-center"><img src="/admin/assets/img/logo-dark.png" alt="Klorofil Logo"></div>
 								<p class="lead">后台登录</p>
 							</div>
@@ -43,11 +43,13 @@
 								<div class="form-group" style="position:relative; top:-30px;">
 									<input type="password" class="form-control" id="apwd" name="apwd" placeholder="密码"><span>&nbsp;</span>
 								</div>
-								<div class="form-group" style="position:relative; top:-30px;width:300px;height: 76px;">
-									<input type="password" class="form-control" name="code" placeholder="请输入验证码">
-									<img src="\admin\captcha" alt="" style='float:right;' onclick="this.src = this.src +='?1'"><span>&nbsp;</span>
+								<div style="position:relative; top:-30px;width:350px;height: 76px;">
+									<input type="text" class="form-control" name="code" placeholder="请输入验证码">
+									<span>&nbsp;</span>
 								</div>
-
+								<div style="position: relative; top:-105px;" >
+									<img src="\admin\captcha" alt="" style='float:right;' onclick="this.src = this.src +='?1'">
+								</div>
 								<div style="position:relative; top:-30px;">
 									<button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>	
 								</div>
@@ -68,7 +70,7 @@
 		</div>
 	</div>
 	<!-- END WRAPPER -->
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$(function(){
 
 			$('#aname').focus(function(){
@@ -76,7 +78,17 @@
 			});
 
 		});
-	</script>
+	</script> -->
+	<script>
+        @if(session('success'))
+
+        alert('{{session('success')}}');
+
+        @elseif(session('error')) 
+
+        alert('{{session('error')}}');
+        @endif
+    </script>
 </body>
 
 </html>

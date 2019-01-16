@@ -20,8 +20,6 @@
                 <td align="center"><a href="#" style="color:#ff4e00;">加入购物车</a>&nbsp; &nbsp; <a href="/home/delete/{{$v->id}}">删除</a></td>
               </tr>
               @endforeach
-                <td align="center">￥456.00</td>
-                <td align="center"><a href="#">关注</a>&nbsp; &nbsp; <a href="#" style="color:#ff4e00;">加入购物车</a>&nbsp; &nbsp; <a href="#">删除</a></td>
               </tr>
             </table>
 @endsection

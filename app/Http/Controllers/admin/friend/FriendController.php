@@ -42,7 +42,7 @@ class FriendController extends Controller
         // 
         $data = new Friend;
         $data->fname = $request->fname;
-        $data->flink = $request->flink;
+        $data->flink = 'https://'.$request->flink;
         $res = $data->save();
         if ($res) {
             return redirect('/admin/friend')->with('success', '添加成功');

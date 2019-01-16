@@ -18,14 +18,21 @@ class CollController extends Controller
     {	
     	//接收ID
     	$gid = $id;
+        $uid = session('res.id');
     	//查找数据
     	$data = Goods::find($id);
     	//保存到数据库
     	$coll = new Collection;
-    	$coll->gid = $gid;
+        $coll->gid = $gid;
+    	$coll->uid = $uid;
     	$coll->price = $data->price;
     	$coll->gname = $data->gname;
-    	$coll->save();
+    	$res = $coll->save();
+        if ($res) {
+            return redirect('/mylike')->with('收藏成功');
+        }else{
+            return redirect('/home/goods')->with('收藏失败');
+        }
     }
 
     /**
@@ -36,7 +43,11 @@ class CollController extends Controller
     public function delete($id)
     {	
     	$data = DB::table('collection')->where('id','=',$id)->delete();
-       	dump($data);
+       	if ($data) {
+            return redirect('/mylike')->with('删除成功');
+        }else{
+            return redirect('/mylike')->with('删除失败');
+        }
     }
 
     /**

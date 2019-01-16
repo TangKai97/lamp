@@ -87,9 +87,11 @@ class FriendController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data1 = $request->except('_token');
+        //dd($data1);
         $data = Friend::find($id);
-        $data->fname = $request->fname;
-        $data->flink = $request->flink;
+        $data->fname = $data1['fname'];
+        $data->flink = $data1['flink'];
         $res = $data->save();
         if ($data) {
             return redirect('/admin/friend')->with('success', '修改成功');

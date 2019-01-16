@@ -9,8 +9,6 @@
 	<br>
 	轮播图图片:<input type="file" class="form-control" name="url">
 	<br>
-	状态:<input type="text" class="form-control" name="status" value="{{ $data->status }}">
-	<br>
 	<input type="submit" class="btn btn-success btn-block"  value="提交">
     </form>
 </div>

@@ -8,6 +8,7 @@ use App\Models\Admin\Cate;
 use App\Models\Admin\Goods;
 use DB;
 use App\Models\Home\Collection;
+use App\Models\Admin\Nfos;
 class HomeController extends Controller
 {
     public static function getPidCates($pid = 0)
@@ -98,6 +99,7 @@ class HomeController extends Controller
     {  
         $data = Goods::find($id);
         $each = self::getPidCates(0);
-        return view('home.myself.goods_info',['each'=>$each,'data'=>$data]);
+        $nfos = Nfos::where('status','=',2)->limit(3)->get();
+        return view('home.myself.goods_info',['each'=>$each,'data'=>$data,'nfos'=>$nfos]);
     }
 }

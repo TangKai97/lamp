@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin\orders;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Orders;
+use App\Models\Admin\Orders_info;
+use  App\Models\Home\Addr;
 class OrdersController extends Controller
 {
     /**
@@ -15,13 +17,12 @@ class OrdersController extends Controller
     public function index(Request $request)
     {
         //获取数据
-        // $data = Orders::all();
          $params = $request->all();
         //读取数据
         if(isset($_GET['oid'])){
-           $data = Orders::where('oid','like',"%{$_GET['oid']}%")->paginate(1);
+           $data = Orders::where('oid','like',"%{$_GET['oid']}%")->paginate(5);
         }else{
-           $data = Orders::paginate(1);
+           $data = Orders::paginate(5);
         }
         //加载视图
         return view('admin.orders.index',['data'=>$data,'params'=>$params]);
@@ -92,10 +93,14 @@ class OrdersController extends Controller
         
         //写入数据库
         $order = Orders::find($id);
-        $order->link_man = $data['link_man'];
-        $order->tel = $data['tel'];
-        $order->addr = $data['addr'];
-        $res = $order->save();
+        $ids = $order->aid;
+        $addrs = Addr::find($ids);
+        //dd($addrs);
+        $addrs->aname = $data['link_man'];
+        $addrs->atel = $data['tel'];
+        $addrs->addrinfo = $data['addrinfo'];
+        $addrs->addr = $data['addr'];
+        $res = $addrs->save();
         if($res){
             return redirect('/admin/orders')->with('success', '修改成功');
         }else{
@@ -113,6 +118,11 @@ class OrdersController extends Controller
     {
         //删除
         $data = Orders::find($id);
+        $data1 = Orders_info::where('oid','=',$id)->get();
+        //
+        foreach ($data1 as $key => $value) {
+            $value->delete();
+        }
         $res = $data->delete();
         if ($res) {
            return redirect('/admin/orders')->with('success', '删除成功');

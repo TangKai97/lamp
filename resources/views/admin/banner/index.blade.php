@@ -18,9 +18,9 @@
 				<td>{{ $v->id }}</td>
 				<td><img src="/uploads/{{ $v->url }}" style="width: 300px; height: 120px;"></td>
 				@if($v->status == 2) 
-				<td>不在轮播</td>
+				<td>禁用</td>
 				@elseif($v->status == 1)
-				<td>在轮播</td>
+				<td>开启</td>
 				@endif
 				<td>{{ $v->created_at }}</td>
 				<td>{{ $v->updated_at }}</td>
@@ -31,6 +31,12 @@
 						<input type="submit" value="删除"  class="btn btn-danger">
 					</form>
 					<a href="/admin/banner/{{ $v->id }}/edit" class="btn btn-warning">修改</a>
+					@if( $v->status == 2)
+                        <a href="/admin/banner/kaiqi/{{ $v->id }}" class="btn btn-info">开启</a>
+					@elseif( $v->status == 1 )
+                        <a href="/admin/banner/jinyong/{{ $v->id }}" class="btn btn-info">禁用</a>
+					@endif
+					
 				</td>
 			</tr>
 			@endforeach

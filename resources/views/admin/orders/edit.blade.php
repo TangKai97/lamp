@@ -6,11 +6,13 @@
 		<form action="/admin/orders/{{$data->oid}}" method="post">
 			{{ csrf_field() }}
 			{{ method_field('PUT') }}
-			收货人:<input type="text" class="form-control" name="link_man" value="{{ $data->link_man }}" >
+			收货人:<input type="text" class="form-control" name="link_man" value="{{ $data->getaddr->aname }}" >
 			<br>
-			电话:<input type="text" class="form-control" name="tel" value=" {{ $data->tel }} ">
+			电话:<input type="text" class="form-control" name="tel" value=" {{ $data->getaddr->atel }} ">
 			<br>
-			收货地址:<input type="text" class="form-control" name="addr" value="{{ $data->addr }}">
+			收货地址:<input type="text" class="form-control" name="addr" value="{{ $data->getaddr->addr }}">
+			<br>
+			收货详细地址:<input type="text" class="form-control" name="addrinfo" value="{{ $data->getaddr->addrinfo }}">
 			<br>
 			<input type="submit" class="btn btn-success btn-block" value="提交">
 			<br>

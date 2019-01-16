@@ -11,9 +11,9 @@
 		<thead>
 			<tr>
 				<th>订单号</th>
-				<th>发货人</th>
 				<th>收货人</th>
 				<th>收货人电话</th>
+				<th>总价</th>
 				<th>状态</th>
 				<th>订单提交时间</th>
 				<th>操作</th>
@@ -21,9 +21,9 @@
 			@foreach($data as $k=>$v)
 			<tr>
 				<td>{{ $v->oid }}</td>
-				<td>{{ $v->getUser->uname }}</td>
-				<td>{{ $v->link_man }}</td>
-				<td>{{ $v->tel }}</td>
+				<td>{{ $v->getaddr->aname }}</td>
+				<td>{{ $v->getaddr->atel }}</td>
+				<td>{{ $v->total }}</td>
 				@if( $v->status == 1)
 				<td>未发货</td>
 				@elseif($v->status == 2)

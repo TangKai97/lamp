@@ -1,7 +1,7 @@
 @extends('home.layout.index')
 @section('content')
 <script type="text/javascript" src="/home/js/jquery-1.8.2.min.js"></script>
-   <form method="post" action="/home/update/18" id="myform">
+   <form method="post" action="/home/update" id="myform">
    	{{ csrf_field() }}
     <table border="0" style="width:420px; font-size:14px; margin-top:20px;" cellspacing="0" cellpadding="0">
       <tr height="50" valign="top">
@@ -72,21 +72,21 @@
            return false;
          }
 
-       var oldpass = $("#oldpass").val();
-       var url = '/home/change/yanzheng/' + oldpass;
-       $.get(url,{'oldpass':oldpass},function(data){
-          if(data.code == 'success'){
-              isoldpass = true;
-              $("#span3").html('<font style="font-size:20px;color:#2bf666;margin-left:10px;">原密码正确</font>');
-          }else{
-              $("#span3").html('<font style="font-size:20px;color:red;margin-left:10px;">原密码不正确</font>');
-          }
-      },'json');
+         var oldpass = $("#oldpass").val();
+         var url = '/home/change/yanzheng/' + oldpass;
+         $.get(url,{'oldpass':oldpass},function(data){
+            if(data.code == 'success'){
+                isoldpass = true;
+                $("#span3").html('<font style="font-size:20px;color:#2bf666;margin-left:10px;">原密码正确</font>');
+            }else{
+                $("#span3").html('<font style="font-size:20px;color:red;margin-left:10px;">原密码不正确</font>');
+            }
+          },'json');
        });
      //阻止表单默认提交事件
 		$('#log_btn').click(function(){
 
-			 if(ispass2 && ispass && oldpass){
+			 if(ispass2 && ispass && isoldpass){
 	     	return true;
 	     }else{
 	     	return false;

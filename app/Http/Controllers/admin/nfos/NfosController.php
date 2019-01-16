@@ -55,6 +55,7 @@ class NfosController extends Controller
         $nfos = new Nfos;
         $nfos->ipic = $data['ipic'];
         $nfos->info = $data['info'];
+        $nfos->price = $data['price'];
         $res1 = $nfos->save();
         if ($res1) {
             return redirect('/admin/nfos')->with('success', '添加成功');
@@ -102,6 +103,7 @@ class NfosController extends Controller
         //存入数据
         $nfos = Nfos::find($id);
         $nfos->info = $data['info'];
+        $nfos->price = $data['price'];
          //判断是否有文件上传
         if ($request->hasFile('ipic')) {
             //完成文件上传
@@ -134,6 +136,32 @@ class NfosController extends Controller
            return redirect('/admin/nfos')->with('success', '删除成功');
         }else{
             return back()->with('error', '删除失败');
+        }
+    }
+
+    public function kaiqi($id)
+    {
+        $data = Nfos::find($id);
+
+        $data->status = 2;
+        $res = $data->save();
+        if ($res) {
+             return redirect('/admin/nfos')->with('success', '开启成功');
+        }else{
+            return back()->with('error', '开启失败');
+        }
+    }
+
+    public function jinyong($id)
+    {
+        $data = Nfos::find($id);
+
+        $data->status = 1;
+        $res = $data->save();
+        if ($res) {
+             return redirect('/admin/nfos')->with('success', '禁用成功');
+        }else{
+            return back()->with('error', '禁用失败');
         }
     }
 }

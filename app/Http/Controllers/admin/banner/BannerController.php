@@ -98,7 +98,6 @@ class BannerController extends Controller
        $data = $request->except(['_token','_method']);
         //存入数据
         $banner = Banner::find($id);
-        $banner->status = $data['status'];
          //判断是否有文件上传
         if ($request->hasFile('url')) {
             //完成文件上传
@@ -132,6 +131,32 @@ class BannerController extends Controller
            return redirect('/admin/banner')->with('success', '删除成功');
         }else{
             return back()->with('error', '删除失败');
+        }
+    }
+
+    public function kaiqi($id)
+    {
+        $data = Banner::find($id);
+
+        $data->status = 1;
+        $res = $data->save();
+        if ($res) {
+             return redirect('/admin/banner')->with('success', '开启成功');
+        }else{
+            return back()->with('error', '开启失败');
+        }
+    }
+
+    public function jinyong($id)
+    {
+        $data = Banner::find($id);
+
+        $data->status = 2;
+        $res = $data->save();
+        if ($res) {
+             return redirect('/admin/banner')->with('success', '禁用成功');
+        }else{
+            return back()->with('error', '禁用失败');
         }
     }
 }

@@ -180,9 +180,9 @@
                       }
 
                       //发送ajax
-                      // $.get('/home/login/sendMobileCode',{'phone':phone},function(data){
-                      //    console.log(data);
-                      // },'json');
+                      $.get('/home/login/sendMobileCode',{'phone':phone},function(data){
+                         console.log(data);
+                      },'json');
 
                      }
 

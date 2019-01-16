@@ -31,7 +31,7 @@ class CateController extends Controller
         //调用该自己
         $data = self::getPidCates(0);
         //查找数据
-        $banner = Banner::find(1);
+        $banner = Banner::where('status','=',1)->limit(3)->get();
         if(session('res')){
             //获取当前登录用户
              $login_users = session('res');

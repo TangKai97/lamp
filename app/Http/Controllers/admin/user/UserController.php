@@ -177,9 +177,9 @@ class UserController extends Controller
             return back()->with('error','密码错误');
         }
 
-        session(['aname'=>$res->aname]);
-        session(['id'=>$res->id]);
-        return redirect('/admin/user')->with('success', '登录成功');
+        session(['aname'=>$res]);
+        // session(['id'=>$res->id]);
+        return redirect('/admin/index')->with('success', '登录成功');
 
     }
     
@@ -211,5 +211,10 @@ class UserController extends Controller
     //     $builder->output();
     // }
 
-
+    //退出
+    public function loginout()
+    {
+         session(['auser'=>null]);
+         return redirect('admin/user/login')->with('success','退出成功');
+    }
 }

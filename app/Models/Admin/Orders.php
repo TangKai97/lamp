@@ -15,4 +15,12 @@ class Orders extends Model
     {
     	return $this->belongsTo('App\Models\Home\user','uid','id');
     }
+
+    //建立表模型关系
+    public function getaddr()
+    {
+    	return $this->belongsTo('App\Models\Home\Addr','aid','id');
+    }
+
+    
 }

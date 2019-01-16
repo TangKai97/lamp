@@ -43,12 +43,17 @@ class RegisterController extends Controller
         //dump(session('mobile_code'));
         //接受数据
         $data = $request->all();
+        $phone_code = $data['phone_code'];
+        if (session('mobile_code')!=$phone_code) {
+            dd('验证码不正确');
+        }
         //dump($data);exit;
         $id = DB::table('home_user')->insertGetId(
             [
                 'utel' => $request->input('utel'),
                 'uname' => $request->input('utel'),
                 'upwd' => Hash::make($request->input('upwd')),
+                'status' =>2,
             ]
         );
         $data = new Userinfo;
@@ -68,24 +73,24 @@ class RegisterController extends Controller
         $mobile_code = rand(1000,9999);
         session(['mobile_code'=>$mobile_code]);
         //接口地址
-       //  $target = 'http://106.ihuyi.com/webservice/sms.php?method=Submit';
-       //  $target .= "&account=C07801597&password=c24bb304d9f2cf76f098e6ac4e9770d3&format=json&mobile=".$phone."&content=".rawurlencode("您的验证码是：".$mobile_code."。请不要把验证码泄露给其他人。");
-       //  //请求接口 GET/PSST
-       //  //初使化init方法
-       //  $ch = curl_init();
+        $target = 'http://106.ihuyi.com/webservice/sms.php?method=Submit';
+        $target .= "&account=C07801597&password=c24bb304d9f2cf76f098e6ac4e9770d3&format=json&mobile=".$phone."&content=".rawurlencode("您的验证码是：".$mobile_code."。请不要把验证码泄露给其他人。");
+        //请求接口 GET/PSST
+        //初使化init方法
+        $ch = curl_init();
 
-       // //指定URL
-       // curl_setopt($ch, CURLOPT_URL, $target);
+       //指定URL
+       curl_setopt($ch, CURLOPT_URL, $target);
 
-       // //设定请求后返回结果
-       // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+       //设定请求后返回结果
+       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-       // //发送请求
-       // $res = curl_exec($ch);
+       //发送请求
+       $res = curl_exec($ch);
 
-       // dump($res);
-       // //关闭curl
-       // curl_close($ch);
+       dump($res);
+       //关闭curl
+       curl_close($ch);
      }
     /**
      * Store a newly created resource in storage.

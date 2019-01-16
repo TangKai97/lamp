@@ -5,6 +5,7 @@
 	<form action="/admin/nfos" method="post" enctype="multipart/form-data">
 	{{ csrf_field() }}
 	广告信息:<input type="text" class="form-control" name="info">
+	商品价格:<input type="text" class="form-control" name="price">
 	广告图片:<input type="file" class="form-control" name="ipic">
 	<br>
 	<input type="submit" class="btn btn-success btn-block"  value="提交">

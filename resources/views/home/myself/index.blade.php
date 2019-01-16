@@ -140,9 +140,9 @@
     	<div class="banner">    	
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
-                    <li><img src="/uploads/{{$banner->url}}" width="740" height="401" /></li>
-                    <li><img src="/home/images/ban1.jpg" width="740" height="401" /></li> 
-                    <li><img src="/home/images/ban1.jpg" width="740" height="401" /></li> 
+                    @foreach($banner as $key=>$value)
+                    <li><img src="/uploads/{{$value->url}}" width="740" height="401" /></li>
+                    @endforeach
                 </ul>	
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>

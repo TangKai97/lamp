@@ -1,7 +1,7 @@
 @extends('home.layout.index')
 @section('content')
 		<div class="m_right">
-            <form action="/addr/{{$data->id}}" method="post">
+            <form action="/home/addr/{{$data->id}}" method="post">
               {{ csrf_field() }}
               {{ method_field('PUT') }}
               <tr>

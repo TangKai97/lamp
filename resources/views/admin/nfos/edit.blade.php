@@ -11,6 +11,8 @@
 	<br>
 	广告信息:<input type="text" class="form-control" name="info" value="{{ $data->info }}">
 	<br>
+	商品价格:<input type="text" class="form-control" name="price" value="{{ $data->price }}">
+	<br>
 	<input type="submit" class="btn btn-success btn-block"  value="提交">
     </form>
 </div>

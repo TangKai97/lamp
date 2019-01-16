@@ -86,7 +86,6 @@ class HuserController extends Controller
         $edit->uname = $data['uname'];
         $edit->utel = $data['utel'];
         $edit->email = $data['email'];
-        $edit->status = $data['status'];
         $edit->save();
         if($data){
             return redirect('/admin/huser')->with('success', '修改成功');
@@ -110,6 +109,32 @@ class HuserController extends Controller
             return redirect('/admin/huser')->with('success', '删除成功');
         }else{
             return back()->with('error', '删除失败');
+        }
+    }
+
+    //激活前台用户
+    public function jihuo($id)
+    {
+        $data = User::find($id);
+        $data->status = 2;
+        $res = $data->save();
+        if($res){
+            return redirect('/admin/huser')->with('success', '激活成功');
+        }else{
+            return back()->with('error', '激活失败');
+        }
+    }
+
+    //前台用户封号
+    public function fenghao($id)
+    {
+        $data = User::find($id);
+        $data->status = 3;
+        $res = $data->save();
+        if($res){
+            return redirect('/admin/huser')->with('success', '封号成功');
+        }else{
+            return back()->with('error', '封号失败');
         }
     }
 }

@@ -11,11 +11,11 @@
 		<thead>
 			<tr>
 				<th>订单号</th>
-				<th>发货人</th>
 				<th>收货人</th>
 				<th>收货人电话</th>
 				<th>状态</th>
 				<th>收货地址</th>
+				<th>详细收货地址</th>
 				<th>订单提交时间</th>
 				<th>备注信息</th>
 				<th>操作</th>
@@ -23,9 +23,8 @@
 
 			<tr>
 				<td>{{ $data->oid }}</td>
-				<td>{{ $data->getUser->uname }}</td>
-				<td>{{ $data->link_man }}</td>
-				<td>{{ $data->tel }}</td>
+				<td>{{ $data->getaddr->aname }}</td>
+				<td>{{ $data->getaddr->atel }}</td>
 				@if( $data->status == 1)
 				<td>未发货</td>
 				@elseif($data->status == 2)
@@ -33,7 +32,8 @@
 				@elseif($data->status == 3)
 				<td>确认收货</td>
 				@endif
-				<td>{{ $data->addr }}</td>
+				<td>{{ $data->getaddr->addr }}</td>
+				<td>{{ $data->getaddr->addrinfo }}</td>
 				<td>{{ $data->created_at }}</td>
 				<td>{{ $data->msg }}</td>
 				<td>

@@ -12,8 +12,6 @@
 			<br>
 			邮箱:<input type="text" class="form-control" name="email" value="{{ $data->email }}">
 			<br>
-			状态:<input type="text" class="form-control" name="status" value="{{ $data->status }}">
-			<br>
 			<input type="submit" class="btn btn-success btn-block" value="提交">
 			<br>
 		</form>

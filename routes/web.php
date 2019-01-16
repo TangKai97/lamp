@@ -20,6 +20,7 @@ Route::get('/', function () {
 // 后台登录
 Route::get('admin/user/login','admin\user\UserController@login');
 Route::get('admin/user/dologin','admin\user\UserController@dologin');
+Route::get('admin/user/loginout','admin\user\UserController@loginout');
 
 //后台用户管理
 Route::resource('admin/user','admin\user\UserController');
@@ -34,6 +35,8 @@ Route::resource('/home/index','home\cates\CateController');
 //前台登录
 Route::get('/home/login','home\login\LoginController@index');
 Route::post('/home/login/login','home\login\LoginController@login');
+//后台首页
+Route::get('/admin/index','admin\IndexController@index');
 
 
 
@@ -75,12 +78,21 @@ Route::post('home/login/insert','home\login\RegisterController@insert');
 Route::get('home/login/sendMobileCode','home\login\RegisterController@sendMobileCode');
 Route::get('home/login/yanzheng/{phone}','home\login\RegisterController@yanzheng');
 
+//激活前台用户
+Route::get('admin/huser/jihuo/{id}','admin\user\HuserController@jihuo');
+//前台用户封号
+Route::get('admin/huser/fenghao/{id}','admin\user\HuserController@fenghao');
 //后台管理前台用户
 Route::resource('admin/huser','admin\user\HuserController');
+
 //后台轮播图
 Route::resource('admin/banner','admin\banner\BannerController');
+Route::get('admin/banner/kaiqi/{id}','admin\banner\BannerController@kaiqi');
+Route::get('admin/banner/jinyong/{id}','admin\banner\BannerController@jinyong');
 //后台广告
 Route::resource('admin/nfos','admin\nfos\NfosController');
+Route::get('admin/nfos/kaiqi/{id}','admin\nfos\NfosController@kaiqi');
+Route::get('admin/nfos/jinyong/{id}','admin\nfos\NfosController@jinyong');
 //后台品论管理
 Route::resource('admin/comment','admin\comment\CommentController');
 //后台订单管理
@@ -90,7 +102,7 @@ Route::get('/admin/orders/fahuo/{id}','admin\orders\OrdersController@fahuo');
 //前台修改密码
 Route::get('home/changepass','home\changepass\ChangepassController@index');
 Route::get('home/change/yanzheng/{oldpass}','home\changepass\ChangepassController@yanzheng');
-Route::post('home/update/{id}','home\changepass\ChangepassController@update');
+Route::post('home/update','home\changepass\ChangepassController@update');
 
 
 

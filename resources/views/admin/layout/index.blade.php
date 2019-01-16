@@ -37,9 +37,11 @@
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="lnr lnr-user"> </i><span>管理员</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="lnr lnr-user"> </i><span>
+							{{session('aname')->aname}}
+							</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="/admin/user/login"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
+								<li><a href="/admin/user/loginout"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
 							</ul>
 						</li>
 						<!-- <li>
@@ -154,6 +156,9 @@
 				</div>
 			@endif
 			@section('content')
+
+
+				<h1>欢迎进入后台控制面板</h1>
 
 			@show
 			<!-- END MAIN CONTENT -->

@@ -4,7 +4,7 @@
 	<span class="page-title" style="text-align: center;"><h1>友情链接修改</h1></span>
 	<form action="/admin/friend/{{$data->id}}" method="post">
 	{{ csrf_field() }}
-	
+	{{ method_field('PUT') }}
 	链接名:<input type="text" class="form-control" name="fname" value="{{$data->fname}}">
 	<br>
 	链接地址:<input type="text" class="form-control" name="flink" value="{{$data->flink}}">

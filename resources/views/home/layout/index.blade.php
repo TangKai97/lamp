@@ -26,7 +26,7 @@
     <div class="sou">
         <span><a href="/home/index" style="font-size:20px;color:#ff4e00">首页</a></span>
         <span class="fr">
-            <span class="fl">&nbsp;|&nbsp;<a href="myself">个人中心</a>&nbsp;|&nbsp;<a href="mybuy">我的订单</a>&nbsp;|&nbsp;<a href="mylike">我的收藏</a>&nbsp;</span>
+            <span class="fl">&nbsp;|&nbsp;<a href="/myself">个人中心</a>&nbsp;|&nbsp;<a href="/mybuy">我的订单</a>&nbsp;|&nbsp;<a href="/mylike">我的收藏</a>&nbsp;</span>
             <span ><a href="#" class="sh1">退出</a></span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
             <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/home/images/s_tel.png" align="absmiddle" /></a></span>

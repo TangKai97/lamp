@@ -28,6 +28,8 @@
 				<td>未激活</td>
 				@elseif($v->status == 2)
 				<td>已激活</td>
+				@elseif($v->status == 3)
+				<td>已封号</td>
 				@endif
 				<td>{{ $v->created_at }}</td>
 				<td>
@@ -36,7 +38,11 @@
 						{{ method_field('DELETE') }}
 						<input type="submit" class="btn btn-danger" name="" value="删除">
 					</form>
-					<a href="/admin/huser/{{ $v->id }}/edit" class="btn btn-info">修改</a>
+					<a href="/admin/huser/{{ $v->id }}/edit" class="btn btn-warning">修改</a>
+					<a href="/admin/huser/fenghao/{{ $v->id }}" class="btn btn-danger">封号</a>
+					@if( $v->status == 1 )
+					<a href="/admin/huser/jihuo/{{ $v->id }}" class="btn btn-info">激活</a>
+					@endif
 				</td>
 			</tr>
 			@endforeach

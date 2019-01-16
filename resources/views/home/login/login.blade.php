@@ -12,6 +12,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <link rel="stylesheet" href="/hlogin/AmazeUI-2.4.2/assets/css/amazeui.css" />
+    <script src="/hlogin/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
     <link href="/hlogin/css/dlstyle.css" rel="stylesheet" type="text/css">
   </head>
 
@@ -36,8 +37,9 @@
                  <div class="user-name">
                     <label for="user"><i class="am-icon-user"></i></label>
                     <input type="text" name="uname" id="user" placeholder="邮箱/手机/用户名">
+                     <span id="user_error" style="color: red;font-size: 7px;"></span>
                  </div>
-                 <div class="user-pass">
+                 <div class="user-pass" style="margin-top: 20px;">
                     <label for="password"><i class="am-icon-lock"></i></label>
                     <input type="password" name="upwd" id="password" placeholder="请输入密码">
                  </div>
@@ -49,7 +51,7 @@
                 <br />
               </div>
                 <div class="am-cf">
-                  <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
+                  <input type="submit" id="user_login" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
                 </div>
               <div class="partner"> 
               </form>  
@@ -60,7 +62,22 @@
                 <li><a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a></li>
               </div>
             </div>  
+         <script type="text/javascript">
+           jQuery('#user').blur(function(){
+               var uname = $('#user').val();
+               var url = '/home/login/check_user/'+uname;
+               $.get(url,{},function(data){
+                if(data.code == 'error'){
+                  $('#user_error').html('该账户已被封号');
+                  $('#user_login').attr('disabled','true');
+                }else if(data.code == 'success'){
+                  $('#user_error').html('该账户未被激活');
+                  $('#user_login').attr('disabled','true');
+                }
 
+               },'json');
+           });
+         </script>
         </div>
       </div>
     </div>

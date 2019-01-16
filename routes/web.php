@@ -35,6 +35,8 @@ Route::resource('/home/index','home\cates\CateController');
 //前台登录
 Route::get('/home/login','home\login\LoginController@index');
 Route::post('/home/login/login','home\login\LoginController@login');
+//检查用户是否封号
+Route::get('/home/login/check_user/{uname}','home\login\LoginController@check_user');
 //后台首页
 Route::get('/admin/index','admin\IndexController@index');
 

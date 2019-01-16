@@ -39,4 +39,20 @@ class LoginController extends Controller
         }
     	
     }
+
+    /**
+     * 检测前台用户是否封号
+     */
+
+    public function check_user($uname)
+    {
+        $user = User::where('uname',$uname)->first();
+
+        if($user->status == 3 ){
+            echo json_encode(['code'=>'error']);
+        }elseif ($user->status == 1) {
+            echo json_encode(['code'=>'success']);
+        }
+
+    }
 }
